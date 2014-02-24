@@ -46,6 +46,7 @@ public class ACLSimulation {
                 // Set count to 0 and make sure it is not a rule until found in while loop
                 int count = 0;
                 isRule = false;
+                boolean isExtended = false;
 
                 // Variables for rule parts
                 IPAddress source = null;
@@ -67,24 +68,79 @@ public class ACLSimulation {
 
                     // Parse rule if it is a rule
                     if(isRule) {
-                        // Permit / Deny
-                        if (count == 2) {
-                            if(current.equals("deny")) {
-                                allow = false;
+                        // Check if standard or extended by checking the acl-number
+                        if (count == 1) {
+                            if(Integer.parseInt(current) > 99) {
+                                isExtended = true;
                             } else {
-                                allow = true;
+                                isExtended = false;
                             }
-                        // Source IP
-                        } else if (count == 3) {
-                            source = new IPAddress(current);
-                        // Source mask
-                        } else if (count == 4) {
-                            sourceMask = new IPAddress(current);
-                            // End of rule, rule complete so add it to rule list of standard style
-                            ACLRule newRule = new ACLRule(source, sourceMask, allow);
+                        }
+                        // Logic for extended ACL
+                        if(isExtended) {
+                            // Permit / Deny
+                            if (count == 2) {
+                                if(current.equals("deny")) {
+                                    allow = false;
+                                } else {
+                                    allow = true;
+                                }
+                                // Protocol
+                            } else if (count == 3) {
+                                protocol = current;
+                                // Source
+                            } else if (count == 4) {
+                               source = new IPAddress(current);
+                                // Source mask
+                            } else if (count == 5) {
+                                sourceMask = new IPAddress(current);
+                                // Dest
+                            } else if (count == 6) {
+                                dest = new IPAddress(current);
+                                // Dest Mask
+                            } else if (count == 7) {
+                                destMask = new IPAddress(current);
+                                // Port number
+                            } else if (count == 9) {
+                                port = Integer.parseInt(current);
+                            }
 
-                            // Add to ACL Rule list
-                            aclList.add(newRule);
+                            // Add extended rule without port
+                            if (destMask != null && port == -1 && count == 9) {
+                                // End of rule, rule complete so add it to rule list of standard style
+                                ACLRule newRule = new ACLRule(source, sourceMask, dest, destMask, allow, protocol);
+
+                                // Add to ACL Rule list
+                                aclList.add(newRule);
+
+                                // Add extended rule with port
+                            } else if (destMask != null && count == 9) {
+                                // End of rule, rule complete so add it to rule list of standard style
+                                ACLRule newRule = new ACLRule(source, sourceMask, dest, destMask, allow, protocol, port);
+
+                                // Add to ACL Rule list
+                                aclList.add(newRule);
+                            }
+                        } else { // Logic for standard ACL
+                            // Permit / Deny
+                            if (count == 2) {
+                                if(current.equals("deny")) {
+                                    allow = false;
+                                } else {
+                                    allow = true;
+                                }
+                            // Source IP
+                            } else if (count == 3) {
+                                source = new IPAddress(current);
+                            // Source mask
+                            } else if (count == 4) {
+                                sourceMask = new IPAddress(current);
+                                // End of rule, rule complete so add it to rule list of standard style
+                                ACLRule newRule = new ACLRule(source, sourceMask, allow);
+
+                                // Add to ACL Rule list
+                                aclList.add(newRule);
+                            }
                         }
                     }
 
