@@ -1,0 +1,7 @@
+access-list 101 deny tcp 172.16.0.0 0.0.255.255 172.16.3.0 0.0.0.255 eq 20
+access-list 101 deny tcp 172.16.0.0 0.0.255.255 172.16.3.0 0.0.0.255 eq 21
+access-list 101 permit ip 172.16.0.0 0.0.255.255 172.16.3.0 0.0.0.255
+
+interface E0
+ipaccess group 101 out
+

@@ -1,0 +1,6 @@
+access-list 100 deny ip 172.16.4.13 0.0.0.0 178.16.4.0 0.0.0.255
+access-list 100 deny ip 172.16.5.0 0.0.0.255 178.16.4.0 0.0.0.255 eq 8080
+
+interface EO 
+ip access-group 100 out 
+

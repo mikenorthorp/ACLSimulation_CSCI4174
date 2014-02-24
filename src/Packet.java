@@ -5,6 +5,7 @@ public class Packet {
 
     private IPAddress source;
     private IPAddress dest;
+    private boolean printed;
     String protocol;
 
     // Packet without a protocol
@@ -12,6 +13,7 @@ public class Packet {
         this.source = source;
         this.dest = dest;
         this.protocol = "";
+        this.printed = false;
     }
 
     // Packet that contains a protocol
@@ -19,12 +21,23 @@ public class Packet {
         this.source = source;
         this.dest = dest;
         this.protocol = protocol;
+        this.printed = false;
     }
 
     /* Getters and setters */
 
     public IPAddress getSource() {
         return source;
+    }
+
+    // Getters and setters
+
+    public boolean isPrinted() {
+        return printed;
+    }
+
+    public void setPrinted(boolean printed) {
+        this.printed = printed;
     }
 
     public void setSource(IPAddress source) {

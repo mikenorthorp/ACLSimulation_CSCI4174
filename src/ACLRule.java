@@ -16,11 +16,19 @@ public class ACLRule {
         this.source = source;
         this.sourceMask = sourceMask;
         this.allow = allow;
+
+        // Set others to null
+        this.dest = null;
+        this.destMask = null;
+        this.port = -1;
+        this.protocol = null;
     }
 
     public ACLRule(IPAddress source, IPAddress sourceMask, IPAddress dest, IPAddress destMask, boolean allow, String protocol, int port) {
         this.source = source;
+        this.sourceMask = sourceMask;
         this.dest = dest;
+        this.destMask = destMask;
         this.allow = allow;
         this.port = port;
         this.protocol = protocol;
@@ -28,13 +36,34 @@ public class ACLRule {
 
     public ACLRule(IPAddress source, IPAddress sourceMask, IPAddress dest, IPAddress destMask, boolean allow, String protocol) {
         this.source = source;
+        this.sourceMask = sourceMask;
         this.dest = dest;
+        this.destMask = destMask;
         this.allow = allow;
         this.protocol = protocol;
+
+        // Set others to null
+        this.port = -1;
     }
 
 
     /* Getters and setters */
+
+    public IPAddress getSourceMask() {
+        return sourceMask;
+    }
+
+    public void setSourceMask(IPAddress sourceMask) {
+        this.sourceMask = sourceMask;
+    }
+
+    public IPAddress getDestMask() {
+        return destMask;
+    }
+
+    public void setDestMask(IPAddress destMask) {
+        this.destMask = destMask;
+    }
 
     public IPAddress getSource() {
         return source;
@@ -74,5 +103,11 @@ public class ACLRule {
 
     public void setProtocol(String protocol) {
         this.protocol = protocol;
+    }
+
+    // Return the full rule if avaialble
+    public String toString() {
+        return "access-list" + allow + " " + protocol + " " + source + " " + sourceMask + " " + dest + " " + destMask
+                + " " + port;
     }
 }
