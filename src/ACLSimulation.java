@@ -7,6 +7,7 @@
 import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class ACLSimulation {
     public static void main(String args[]) {
@@ -26,6 +27,60 @@ public class ACLSimulation {
         ArrayList<ACLRule> aclList = new ArrayList<ACLRule>();
 
         // Wrap the file read in a try catch to catch errors
+        // File read modifed from http://www.roseindia.net/java/beginners/java-read-file-line-by-line.shtml
+        try {
+            // Set up file input stream
+            FileInputStream input = new FileInputStream(filename);
+            // Set up the datainput stream and buffered reader
+            DataInputStream dataIn = new DataInputStream(input);
+            BufferedReader buffer = new BufferedReader(new InputStreamReader(dataIn));
+
+            // Temp line to read in
+            String tempLine;
+            boolean endRead = false;
+            // Read File Line By Line while not null and reading not stopped
+            while ((tempLine = buffer.readLine()) != null && !endRead)   {
+                // Create a tokenizer for this line
+                StringTokenizer tokenizer = new StringTokenizer(tempLine);
+                String current = "";
+                int count = 0;
+                // Loop through tokens in line
+                while (tokenizer.hasMoreTokens() && !endRead) {
+                    current = tokenizer.nextToken();
+
+                    // Check if current line is end of ACL rules
+                    if(current == "interface") {
+                        endRead = true;
+                    } else if (count == 3) {
+                        // Deny or allow
+                    } else if (count == 4) {
+                        // Protocol or
+                    } else if (count == 5) {
+                        //
+                    }
+
+                }
+            }
+            // Close the data input stream
+            dataIn.close();
+
+        } catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+
+
+        // Read in the packet list file and store in an array list of packets
+        System.out.print("Please enter the Packet list to read in: ");
+        filename = scan.next();
+
+        // Flush input
+        scan.nextLine();
+
+        // Array list of ACLRules
+        ArrayList<Packet> packetList = new ArrayList<Packet>();
+
+        // Wrap the file read in a try catch to catch errors
+        // File read modified from http://www.roseindia.net/java/beginners/java-read-file-line-by-line.shtml
         try {
             // Set up file input stream
             FileInputStream input = new FileInputStream(filename);
@@ -47,10 +102,8 @@ public class ACLSimulation {
             System.err.println(e.getMessage());
         }
 
-        
-        // Read in the packet list file and store in an array list of packets
-
-        // Determine what to deny and allow
+        // Determine what to deny and allow by going through the rule list for each packet, then printing out a
+        // deny or allow
 
     }
 }
