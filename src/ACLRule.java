@@ -4,37 +4,32 @@
  */
 public class ACLRule {
     private IPAddress source;
+    private IPAddress sourceMask;
     private IPAddress dest;
+    private IPAddress destMask;
     private boolean allow;
     private int port;
     private String protocol;
 
     // Different types of constructors for different rules below
-    public ACLRule(IPAddress source, IPAddress dest, boolean allow) {
+    public ACLRule(IPAddress source, IPAddress sourceMask, boolean allow) {
         this.source = source;
-        this.dest = dest;
+        this.sourceMask = sourceMask;
         this.allow = allow;
     }
 
-    public ACLRule(IPAddress source, IPAddress dest, boolean allow, int port) {
+    public ACLRule(IPAddress source, IPAddress sourceMask, IPAddress dest, IPAddress destMask, boolean allow, String protocol, int port) {
         this.source = source;
         this.dest = dest;
         this.allow = allow;
         this.port = port;
-    }
-
-    public ACLRule(IPAddress source, IPAddress dest, boolean allow, String protocol) {
-        this.source = source;
-        this.dest = dest;
-        this.allow = allow;
         this.protocol = protocol;
     }
 
-    public ACLRule(IPAddress source, IPAddress dest, boolean allow, int port, String protocol) {
+    public ACLRule(IPAddress source, IPAddress sourceMask, IPAddress dest, IPAddress destMask, boolean allow, String protocol) {
         this.source = source;
         this.dest = dest;
         this.allow = allow;
-        this.port = port;
         this.protocol = protocol;
     }
 

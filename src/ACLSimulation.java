@@ -37,27 +37,59 @@ public class ACLSimulation {
 
             // Temp line to read in
             String tempLine;
-            boolean endRead = false;
+            boolean isRule = false;
             // Read File Line By Line while not null and reading not stopped
-            while ((tempLine = buffer.readLine()) != null && !endRead)   {
+            while ((tempLine = buffer.readLine()) != null)   {
                 // Create a tokenizer for this line
                 StringTokenizer tokenizer = new StringTokenizer(tempLine);
                 String current = "";
+                // Set count to 0 and make sure it is not a rule until found in while loop
                 int count = 0;
-                // Loop through tokens in line
-                while (tokenizer.hasMoreTokens() && !endRead) {
+                isRule = false;
+
+                // Variables for rule parts
+                IPAddress source = null;
+                IPAddress sourceMask = null;
+                IPAddress dest = null;
+                IPAddress destMask = null;
+                boolean allow = false;
+                int port = -1;
+                String protocol = null;
+
+                // Loop through tokens in line to get rule stuff
+                while (tokenizer.hasMoreTokens()) {
                     current = tokenizer.nextToken();
 
-                    // Check if current line is end of ACL rules
-                    if(current == "interface") {
-                        endRead = true;
-                    } else if (count == 3) {
-                        // Deny or allow
-                    } else if (count == 4) {
-                        // Protocol or
-                    } else if (count == 5) {
-                        //
+                    // Check if first line is access-list, then continue getting parts of it
+                    if(current.equals("access-list")) {
+                        isRule = true;
                     }
+
+                    // Parse rule if it is a rule
+                    if(isRule) {
+                        // Permit / Deny
+                        if (count == 2) {
+                            if(current.equals("deny")) {
+                                allow = false;
+                            } else {
+                                allow = true;
+                            }
+                        // Source IP
+                        } else if (count == 3) {
+                            source = new IPAddress(current);
+                        // Source mask
+                        } else if (count == 4) {
+                            sourceMask = new IPAddress(current);
+                            // End of rule, rule complete so add it to rule list of standard style
+                            ACLRule newRule = new ACLRule(source, sourceMask, allow);
+
+                            // Add to ACL Rule list
+                            aclList.add(newRule);
+                        }
+                    }
+
+                    // Increase the count
+                    count++;
 
                 }
             }
