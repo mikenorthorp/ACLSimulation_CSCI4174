@@ -4,7 +4,7 @@ README
 README and code base best viewed on [Github](https://github.com/mikenorthorp/ACLSimulation_CSCI4174)
 
 
-This is an assignment for my Server Side Scripting class CSCI4174 Assignment 2
+This is an assignment for my Network Security class CSCI4174 Assignment 2
 
 It is a simulation of an Access Control List or ACL for packet filtering. It is just a general mockup and does not entirely match the professional specifications of an actual ACL, but made for this assignment. 
 
