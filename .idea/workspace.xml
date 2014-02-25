@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65d37d33-3114-4f3e-8f6d-692f629834f4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ACLRule.java" afterPath="$PROJECT_DIR$/src/ACLRule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ACLSimulation.java" afterPath="$PROJECT_DIR$/src/ACLSimulation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Packet.java" afterPath="$PROJECT_DIR$/src/Packet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acl1.txt" afterPath="$PROJECT_DIR$/acl1.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packet1.txt" afterPath="$PROJECT_DIR$/packet1.txt" />
-    </list>
+    <list default="true" id="65d37d33-3114-4f3e-8f6d-692f629834f4" name="Default" comment="" />
     <ignored path="ACLSimulation.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -78,7 +72,7 @@
       <file leaf-file-name="ACLSimulation.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ACLSimulation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="219" column="0" selection-start="9050" selection-end="9050" vertical-scroll-proportion="0.54744524" vertical-offset="3060" max-vertical-offset="5925">
+            <state line="13" column="30" selection-start="371" selection-end="371" vertical-scroll-proportion="0.47445256" vertical-offset="0" max-vertical-offset="5925">
               <folding>
                 <element signature="e#0#16362#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -144,7 +138,7 @@
       <file leaf-file-name="IPAddress.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/IPAddress.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="0" selection-start="2024" selection-end="2024" vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="1590">
+            <state line="84" column="0" selection-start="2024" selection-end="2024" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1590">
               <folding>
                 <element signature="e#1549#1550#0" expanded="true" />
                 <element signature="e#1575#1576#0" expanded="true" />
@@ -530,16 +524,16 @@
       <changelist id="65d37d33-3114-4f3e-8f6d-692f629834f4" name="Default" comment="" />
       <created>1393195573758</created>
       <updated>1393195573758</updated>
-      <workItem from="1393195578815" duration="20007000" />
+      <workItem from="1393195578815" duration="21122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20007000" />
+    <option name="totallyTimeSpent" value="21122000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="24" width="1317" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -561,7 +555,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25568628" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924962" sideWeight="0.49960783" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924962" sideWeight="0.49960783" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -667,7 +661,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ACLSimulation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="0" selection-start="9050" selection-end="9050" vertical-scroll-proportion="0.54744524" vertical-offset="3060" max-vertical-offset="5925">
+        <state line="13" column="30" selection-start="371" selection-end="371" vertical-scroll-proportion="0.47445256" vertical-offset="0" max-vertical-offset="5925">
           <folding>
             <element signature="e#0#16362#0" expanded="true" />
             <element signature="imports" expanded="true" />
